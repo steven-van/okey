@@ -11,6 +11,9 @@ const Home = () => {
           <Logo />
         </div>
         <div className="flex justify-center items-center space-x-2 my-2">
+          <p className="text-gray-900 dark:text-white font-medium text-sm">
+            Filter :
+          </p>
           <Filter />
           <Filter />
           <Filter />

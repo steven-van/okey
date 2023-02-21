@@ -3,13 +3,19 @@ import React from "react";
 const Card = () => {
   return (
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-500">
-      <a href="#">
-        <img
-          class="rounded-t-lg"
-          src="https://miadesigner.com/wp-content/uploads/2022/05/7a0a286ba46aa8ad7700265afcc95708.jpg"
-          alt="product image"
-        />
-      </a>
+      <div className="relative">
+        <a href="#">
+          <img
+            class="rounded-t-lg"
+            src="https://miadesigner.com/wp-content/uploads/2022/05/7a0a286ba46aa8ad7700265afcc95708.jpg"
+            alt="product image"
+          />
+        </a>
+      </div>
+
+      <div class="p-0.5 text-center bg-red-400 text-white text-sm font-medium">
+        Location
+      </div>
       <div class="p-5">
         <div class="flex justify-between items-center">
           <a href="#">
