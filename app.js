@@ -1,30 +1,30 @@
 const express = require("express");
-const mysql = require("mysql");
+const cors = require("cors");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 8000;
+const con = require("./config/connection");
 
-const con = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "agence_immo",
-});
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 con.connect((err) => {
   if (err) throw err;
   console.log("Connected!");
-
-  const query = "SELECT * from Logement";
-  con.query(query, (err, result) => {
-    if (err) throw err;
-    console.log(result);
+  app.listen(port, () => {
+    console.log(`Server app listening on port ${port}`);
   });
 });
 
+// Routes
+const auth = require("./routes/auth");
+const properties = require("./routes/properties");
+
+app.use("/auth", auth);
+app.use("/properties", properties);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
 });

@@ -14,3 +14,5 @@ router.post("/login", () => {
     .update(email + ":" + pwd)
     .digest("hex");
 });
+
+module.exports = router;
