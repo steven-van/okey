@@ -1,6 +1,6 @@
 import React from "react";
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 const App = () => {

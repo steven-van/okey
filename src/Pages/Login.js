@@ -1,6 +1,6 @@
 import React from "react";
-import LoginModal from "../Components/LoginModal";
-import Logo from "../Components/Logo";
+import LoginModal from "../components/LoginModal";
+import Logo from "../components/Logo";
 
 const Login = () => {
   return (
