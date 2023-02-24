@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card from "../components/UI/Card";
 import Filter from "../components/Filter";
-import Logo from "../components/Logo";
+import Logo from "../components/UI/Logo";
 import LogoutButton from "../components/LogoutButton";
 import axios from "axios";
 
