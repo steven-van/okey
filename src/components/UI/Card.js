@@ -8,7 +8,10 @@ const Card = ({ data }) => {
   return (
     <>
       <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 transition duration-500">
-        <a className="relative flex justify-center items-center" href="#">
+        <div
+          onClick={() => setShown(true)}
+          className="relative flex justify-center items-center cursor-pointer "
+        >
           <img
             className={`rounded-t-lg ${!data.dispo ? "blur" : ""}`}
             src="/imgs/property-image.jpg"
@@ -19,7 +22,7 @@ const Card = ({ data }) => {
               Indisponible
             </p>
           )}
-        </a>
+        </div>
 
         <div className="p-1 text-center bg-red-400 text-white text-sm font-medium">
           {data.objectif_gestion[0].toUpperCase() +
@@ -27,11 +30,9 @@ const Card = ({ data }) => {
         </div>
         <div className="p-5">
           <div className="flex justify-between items-center">
-            <a href="#">
-              <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                {data.adresse}
-              </h5>
-            </a>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              {data.adresse}
+            </h5>
             <p className="text-md font-semibold tracking-tight text-gray-900 dark:text-gray-400">
               {data.surface} m², {data.nb_piece} rooms
             </p>
@@ -86,7 +87,7 @@ const Card = ({ data }) => {
               </p>
               <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 <span className="text-md font-semibold tracking-tight text-gray-900 dark:text-gray-400">
-                  Adress :{" "}
+                  Address :{" "}
                 </span>
                 {data.adresse}
               </p>
@@ -122,7 +123,7 @@ const Card = ({ data }) => {
               </p>
               <p className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                 <span className="text-md font-semibold tracking-tight text-gray-900 dark:text-gray-400">
-                  Sale/Lease :{" "}
+                  Sale/Rental :{" "}
                 </span>
                 {data.objectif_gestion}
               </p>
