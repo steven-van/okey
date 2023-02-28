@@ -1,12 +1,41 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginModal = () => {
+  const [email, setEmail] = useState("");
+  const [pwd, setPwd] = useState("");
   const navigate = useNavigate();
+  const [isFormValid, setIsFormValid] = useState(true);
 
+  const handleFormValidation = (user) => {
+    if (user.email.trim() !== "" || user.pwd.trim() !== "") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const user = { email: email, pwd: pwd };
+    if (handleFormValidation(user)) {
+      axios
+        .post("http://localhost:8000/auth/login", user)
+        .then((res) => {
+          console.log(res);
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
+  };
   return (
     <div className="w-full max-w-sm p-4 bg-white rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800">
-      <form className="space-y-6" action="#">
+      <form
+        className="space-y-6"
+        onSubmit={(e) => {
+          handleLogin(e);
+        }}
+      >
         <h5 className="text-xl font-medium text-gray-900 dark:text-white">
           Sign in to our platform
         </h5>
@@ -18,6 +47,8 @@ const LoginModal = () => {
             Your email
           </label>
           <input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             type="email"
             name="email"
             id="email"
@@ -34,6 +65,8 @@ const LoginModal = () => {
             Your password
           </label>
           <input
+            onChange={(e) => setPwd(e.target.value)}
+            value={pwd}
             type="password"
             name="password"
             id="password"
@@ -71,14 +104,19 @@ const LoginModal = () => {
           Login to your account
         </button>
         <div className="text-sm font-medium text-gray-500 dark:text-gray-300">
-          Not registered?{" "}
+          Not registered ?{" "}
           <button
             onClick={() => navigate("/signup")}
-            href="#"
+            type="submit"
             className="text-red-500 hover:underline"
           >
             Create account
           </button>
+          {!isFormValid && (
+            <p className="text-sm m-auto font-medium tracking-tight text-red-600 text-center animate-pulse">
+              Please fill in all fields
+            </p>
+          )}
         </div>
       </form>
     </div>

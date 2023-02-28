@@ -18,7 +18,7 @@ const AddProperty = () => {
 
   const handleFormValidation = (property) => {
     for (const key in property) {
-      if (property[key] === "" || property[key] === 0) {
+      if (property[key].trim() === "" || property[key].trim() === 0) {
         setIsFormValid(false);
         return false;
       }
@@ -172,6 +172,7 @@ const AddProperty = () => {
                   </label>
                   <input
                     onChange={(e) => setSurfaceArea(e.target.value)}
+                    value={surfaceArea}
                     type="number"
                     id="surface"
                     min="1"
@@ -193,7 +194,9 @@ const AddProperty = () => {
                     id="condition"
                     required
                   >
-                    <option value="bon etat">Good</option>
+                    <option value="bon etat" selected>
+                      Good
+                    </option>
                     <option value="tres bon etat">Very good</option>
                     <option value="a renover">To renovate</option>
                   </select>
@@ -211,7 +214,9 @@ const AddProperty = () => {
                     id="purpose"
                     required
                   >
-                    <option value="vente">Sale</option>
+                    <option value="vente" selected>
+                      Sale
+                    </option>
                     <option value="location">Rental</option>
                   </select>
                 </div>
@@ -224,6 +229,7 @@ const AddProperty = () => {
                   </label>
                   <input
                     onChange={(e) => setPrice(e.target.value)}
+                    value={price}
                     type="number"
                     id="Price"
                     placeholder="Price"
@@ -240,6 +246,7 @@ const AddProperty = () => {
                   </label>
                   <input
                     onChange={(e) => setAvailabilityDate(e.target.value)}
+                    value={availabilityDate}
                     id="availability-date"
                     type="date"
                     placeholder="Availability date"

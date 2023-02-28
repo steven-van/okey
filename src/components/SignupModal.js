@@ -3,15 +3,17 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignupModal = () => {
+  const [isFormValid, setIsFormValid] = useState(true);
   const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
 
   const handleFormValidation = (user) => {
-    if (user.email !== "" || user.pwd !== "") {
+    if (user.email.trim() !== "" || user.pwd.trim() !== "") {
+      setIsFormValid(true);
       return true;
     } else {
+      setIsFormValid(false);
       return false;
     }
   };
@@ -50,6 +52,7 @@ const SignupModal = () => {
           </label>
           <input
             onChange={(e) => setEmail(e.target.value)}
+            value={email}
             type="email"
             name="email"
             id="email"
@@ -67,6 +70,7 @@ const SignupModal = () => {
           </label>
           <input
             onChange={(e) => setPwd(e.target.value)}
+            value={pwd}
             type="password"
             name="password"
             id="password"
@@ -82,6 +86,11 @@ const SignupModal = () => {
         >
           Sign Up
         </button>
+        {!isFormValid && (
+          <p className="text-sm m-auto font-medium tracking-tight text-red-600 text-center animate-pulse">
+            Please fill in all fields
+          </p>
+        )}
       </form>
     </div>
   );
