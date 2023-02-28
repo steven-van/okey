@@ -65,11 +65,11 @@ const AddProperty = () => {
     });
   }, []);
   return (
-    <div className="bg-gray-100 dark:bg-gray-900">
+    <div className="g-container bg-gray-100 dark:bg-gray-900">
       <div className="container px-6 py-6 mx-auto">
         <Header />
         <div className="w-full p-4 bg-white rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800">
-          <form className="space-y-6" action="#">
+          <form className="space-y-6" onSubmit={(e) => handleSubmit(e)}>
             <h5 className="text-xl font-medium text-gray-900 dark:text-white md:text-center">
               Register a property
             </h5>
@@ -257,7 +257,6 @@ const AddProperty = () => {
             )}
 
             <button
-              onClick={(e) => handleSubmit(e)}
               type="submit"
               className="w-full text-white bg-red-500 hover:bg-red-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >

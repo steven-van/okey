@@ -30,7 +30,7 @@ const Card = ({ data }) => {
         </div>
         <div className="p-5">
           <div className="flex justify-between items-center">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white">
               {data.adresse}
             </h5>
             <p className="text-md font-semibold tracking-tight text-gray-900 dark:text-gray-400">
