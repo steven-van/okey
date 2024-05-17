@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/UI/Card";
-import Filter from "../components/FilterButton";
+import Card from "../Components/UI/Card";
+import Filter from "../Components/FilterButton";
 import axios from "axios";
-import Header from "../components/Header";
+import Header from "../Components/Header";
 
 const Home = () => {
   const [properties, setProperties] = useState([]);

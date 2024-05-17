@@ -1,9 +1,9 @@
 import React from "react";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddProperty from "./pages/AddProperty";
-import Signup from "./pages/Signup";
+import AddProperty from "./Pages/AddProperty";
+import Signup from "./Pages/Signup";
 
 const App = () => {
   return (

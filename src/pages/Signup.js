@@ -1,6 +1,5 @@
 import React from "react";
-import SignupModal from "../components/SignupModal";
-import Logo from "../components/UI/Logo";
+import SignupModal from "../Components/SignupModal";
 
 const Signup = () => {
   return (
